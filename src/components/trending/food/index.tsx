@@ -7,7 +7,7 @@ import { FoodProps } from "..";
 export function Food({ food }: { food: FoodProps }) {
   return (
     <TouchableOpacity
-      className="flex flex-col rounded-xl relative"
+      className="flex flex-col rounded-xl relative w-44"
       onPress={() =>
         router.push({
           pathname: "/food/[id]",
@@ -29,7 +29,9 @@ export function Food({ food }: { food: FoodProps }) {
       <Text className="text-green-700 font-medium text-lg">
         R$ {food.price.toFixed(2).replace(".", ",")}
       </Text>
-      <Text className="text-black mt-1">{food.name}</Text>
+      <Text className="text-black mt-1" numberOfLines={1}>
+        {food.name}
+      </Text>
       <Text className="text-neutral-600 text-sm">
         {food.time} - R$ {food.delivery.toFixed(2).replace(".", ",")}
       </Text>

@@ -8,6 +8,7 @@ import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
 import { RestaurantProps } from "@/src/components/restaurants";
 
+import { RestaurantDescriptionBody } from "@/src/components/restaurant-description/restaurant-description-body";
 import { RestaurantDescriptionHeader } from "@/src/components/restaurant-description/restaurant-description-header";
 
 const statusBarHeight = Constants.statusBarHeight;
@@ -45,6 +46,8 @@ export default function Restaurant() {
           restaurant={restaurant}
           statusBarHeight={statusBarHeight}
         />
+
+        <RestaurantDescriptionBody restaurant={restaurant} />
       </View>
     </ScrollView>
   );

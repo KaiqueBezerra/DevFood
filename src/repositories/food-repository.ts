@@ -11,6 +11,16 @@ export const foodApi = {
     }
   },
 
+  async getFoodsByRestaurant({ id }: { id: string }) {
+    try {
+      const { data, status } = await api.get(`foods?restaurantId=${id}`);
+      return { data, status };
+    } catch (error) {
+      console.error("Erro ao buscar refeições:", error);
+      return { data: null, status: 500 };
+    }
+  },
+
   async getFood(id: string) {
     try {
       const { data, status } = await api.get(`foods/${id}`);

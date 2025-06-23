@@ -4,7 +4,7 @@ import { Pressable, Text, View } from "react-native";
 export function Header() {
   return (
     <View className="flex-row w-full items-center justify-between">
-      <Pressable className="w-10 h-10 bg-gray-100 rounded-full items-center justify-center">
+      <Pressable className="w-10 h-10 bg-gray-100 rounded-full items-center justify-center invisible">
         <Ionicons name="menu" size={20} color="#121212" />
       </Pressable>
 
@@ -18,7 +18,7 @@ export function Header() {
       </View>
 
       <Pressable className="w-10 h-10 bg-gray-100 rounded-full items-center justify-center">
-        <Feather name="bell" size={20} color="#121212" />
+        <Feather name="bell" size={24} color="#121212" />
       </Pressable>
     </View>
   );
