@@ -1,0 +1,192 @@
+{
+  "restaurants": [
+    {
+      "id": "1",
+      "name": "KFC",
+      "image": "https://i.imgur.com/sZ1Jye3.png",
+      "bgImage": "https://i.imgur.com/CEVUdju.png",
+      "rating": 4.8,
+      "location": "Shopping Center",
+      "distance": 1.2,
+      "time": "30-45 min",
+      "delivery": 8.99,
+      "reviews": 2000
+    },
+    {
+      "id": "2",
+      "name": "McDonald's",
+      "image": "https://i.imgur.com/su4iB3p.png",
+      "bgImage": "https://i.imgur.com/O5c3lyU.png",
+      "rating": 4.8,
+      "location": "Shopping West",
+      "distance": 0.5,
+      "time": "20-30 min",
+      "delivery": 5.99,
+      "reviews": 2400
+    },
+    {
+      "id": "3",
+      "name": "Outback",
+      "image": "https://i.imgur.com/jg3GJVN.png",
+      "bgImage": "https://i.imgur.com/BaUUCkc.png",
+      "rating": 4.9,
+      "location": "Shopping Center",
+      "distance": 1.2,
+      "time": "30-45 min",
+      "delivery": 8.99,
+      "reviews": 1500
+    },
+    {
+      "id": "4",
+      "name": "Sushi Dev",
+      "image": "https://i.imgur.com/ffYWFBX.png",
+      "bgImage": "https://i.imgur.com/uXRuDFD.png",
+      "rating": 4.2,
+      "location": "Avenida Paulista",
+      "distance": 6.5,
+      "time": "50-60 min",
+      "delivery": 15.99,
+      "reviews": 1200
+    },
+    {
+      "id": "5",
+      "name": "Burguer Grill",
+      "image": "https://i.imgur.com/kmQvG2T.png",
+      "bgImage": "https://i.imgur.com/O5c3lyU.png",
+      "rating": 4.8,
+      "location": "Avenida Paulista",
+      "distance": 6.5,
+      "time": "50-60 min",
+      "delivery": 15.99,
+      "reviews": 1400
+    },
+    {
+      "id": "6",
+      "name": "Marmitas express",
+      "image": "https://i.imgur.com/uXRuDFD.png",
+      "bgImage": "https://i.imgur.com/0UjG3wk.png",
+      "rating": 4.56,
+      "location": "Rua dos Bobos",
+      "distance": 0.1,
+      "time": "10-15 min",
+      "delivery": 1.99,
+      "reviews": 1000
+    }
+  ],
+  "foods": [
+    {
+      "id": "1",
+      "name": "Frango assado",
+      "description": "Clássico e irresistível! Frango assado no ponto certo, com pele crocante e tempero caseiro que derrete na boca. Acompanhado de batatas douradas e aquele cheirinho de domingo em família.",
+      "tags": [
+        "#frangoassado",
+        "#comidacaseira",
+        "#almoço",
+        "#batatadorada",
+        "#saborcaseiro",
+        "#frangodomingo",
+        "#refeicaofarta",
+        "#frangonoforno",
+        "#confortfood",
+        "#familia"
+      ],
+      "price": 39.99,
+      "time": "30-45 min",
+      "delivery": 8.99,
+      "rating": 4.8,
+      "image": "https://i.imgur.com/CEVUdju.png",
+      "restaurantId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Marmita fit",
+      "description": "Sua refeição saudável e saborosa! Peito de frango grelhado, arroz integral, legumes no vapor e saladinha fresca. Nutritiva, leve e perfeita para manter o foco sem abrir mão do sabor.",
+      "tags": [
+        "#fit",
+        "#marmitafit",
+        "#comiodasaudavel",
+        "#alimentacaosaudavel",
+        "#vidasaudavel",
+        "#fitness",
+        "#semculpa",
+        "#lowfat",
+        "#comidaleve",
+        "#nutritiva"
+      ],
+      "price": 29.99,
+      "time": "10-15 min",
+      "delivery": 1.99,
+      "rating": 4.9,
+      "image": "https://i.imgur.com/uXRuDFD.png",
+      "restaurantId": "6"
+    },
+    {
+      "id": "3",
+      "name": "Burguer Dev",
+      "description": "Alimente seu código com sabor! Pão artesanal, hambúrguer 180g de carne angus, queijo derretido, bacon crocante, cebola caramelizada e molho secreto da casa. Feito sob medida para programadores famintos!",
+      "tags": [
+        "#hamburguerartesanal",
+        "#burguerdev",
+        "#burguer",
+        "#hamburguer",
+        "#carneangus",
+        "#nerdfood",
+        "#burguergourmet",
+        "#codeandburguer",
+        "#fastfood",
+        "#techfood"
+      ],
+      "price": 49.99,
+      "time": "50-60 min",
+      "delivery": 15.99,
+      "rating": 4.5,
+      "image": "https://i.imgur.com/O5c3lyU.png",
+      "restaurantId": "5"
+    },
+    {
+      "id": "4",
+      "name": "Picanha Grill",
+      "description": "Sabor de churrasco todo dia! Picanha fatiada no ponto perfeito, suculenta e com aquela gordurinha na medida. Acompanhada de arroz, vinagrete e farofa crocante. Uma explosão de sabor na sua refeição!",
+      "tags": [
+        "#picanha",
+        "#churrasco",
+        "#grelhado",
+        "#picanhagrill",
+        "#comidabrasileira",
+        "#nerdfoodcarnesuina",
+        "#almococompleto",
+        "#gourmet",
+        "#farofa",
+        "#arrozefeijao"
+      ],
+      "price": 35.99,
+      "time": "30-45 min",
+      "delivery": 8.99,
+      "rating": 4.4,
+      "image": "https://i.imgur.com/0UjG3wk.png",
+      "restaurantId": "3"
+    },
+    {
+      "id": "5",
+      "name": "Açai 300ml",
+      "description": "Refrescante e cheio de energia! Açaí cremoso batido no ponto, servido com banana, granola crocante e leite condensado (opcional). Ideal pra dar aquele up no seu dia!",
+      "tags": [
+        "#acai",
+        "#acaifolda",
+        "#refrescante",
+        "#energia",
+        "#fitfood",
+        "#granola",
+        "#banana",
+        "#acaitaca",
+        "#docesaudavel"
+      ],
+      "price": 19.99,
+      "time": "30-45 min",
+      "delivery": 8.99,
+      "rating": 4.4,
+      "image": "https://i.imgur.com/BaUUCkc.png",
+      "restaurantId": "3"
+    }
+  ]
+}
