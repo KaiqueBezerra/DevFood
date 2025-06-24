@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-import { FoodProps } from "../../trending";
+import { FoodProps } from "../..";
 
 export function FoodDescriptionBody({ food }: { food: FoodProps }) {
   return (

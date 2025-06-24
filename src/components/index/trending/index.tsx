@@ -2,20 +2,8 @@ import { foodApi } from "@/src/repositories/food-repository";
 import { useEffect, useState } from "react";
 import { FlatList, Text } from "react-native";
 
+import { FoodProps } from "../../food";
 import { Food } from "./food";
-
-export interface FoodProps {
-  id: string;
-  name: string;
-  description: string;
-  tags: string[];
-  price: number;
-  time: string;
-  delivery: number;
-  rating: number;
-  image: string;
-  restaurantId: string;
-}
 
 export function TrendingFoods() {
   const [foods, setFoods] = useState<FoodProps[]>([]);

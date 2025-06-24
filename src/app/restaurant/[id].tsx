@@ -1,19 +1,15 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
 
 import Constants from "expo-constants";
 
 import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
-import { RestaurantProps } from "@/src/components/restaurants";
-
-import { RestaurantDescriptionBody } from "@/src/components/restaurant-description/restaurant-description-body";
-import { RestaurantDescriptionHeader } from "@/src/components/restaurant-description/restaurant-description-header";
+import { Restaurant, RestaurantProps } from "@/src/components/restaurant";
 
 const statusBarHeight = Constants.statusBarHeight;
 
-export default function Restaurant() {
+export default function RestaurantPage() {
   const [restaurant, setRestaurant] = useState<RestaurantProps | null>(null);
 
   const { id } = useLocalSearchParams<{
@@ -40,15 +36,6 @@ export default function Restaurant() {
   }
 
   return (
-    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-      <View className="min-h-screen">
-        <RestaurantDescriptionHeader
-          restaurant={restaurant}
-          statusBarHeight={statusBarHeight}
-        />
-
-        <RestaurantDescriptionBody restaurant={restaurant} />
-      </View>
-    </ScrollView>
+    <Restaurant restaurant={restaurant} statusBarHeight={statusBarHeight} />
   );
 }

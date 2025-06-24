@@ -20,4 +20,14 @@ export const restaurantApi = {
       return { data: null, status: 500 };
     }
   },
+
+  async getRestaurantBySearch(query: string) {
+    try {
+      const { data, status } = await api.get(`/restaurants?name=${query}`);
+      return { data, status };
+    } catch (error) {
+      console.error("Erro ao buscar restaurantes:", error);
+      return { data: null, status: 500 };
+    }
+  },
 };

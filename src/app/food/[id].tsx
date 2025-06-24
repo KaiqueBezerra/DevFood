@@ -1,22 +1,17 @@
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
 
 import Constants from "expo-constants";
 
 import { foodApi } from "@/src/repositories/food-repository";
 import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
-import { RestaurantProps } from "@/src/components/restaurants";
-import { FoodProps } from "@/src/components/trending";
-
-import { FoodDescriptionBody } from "@/src/components/food-description/food-description-body";
-import { FoodDescriptionFooter } from "@/src/components/food-description/food-description-footer";
-import { FoodDescriptionHeader } from "@/src/components/food-description/food-description-header";
+import { Food, FoodProps } from "@/src/components/food";
+import { RestaurantProps } from "@/src/components/restaurant";
 
 const statusBarHeight = Constants.statusBarHeight;
 
-export default function Food() {
+export default function FoodPage() {
   const [food, setFood] = useState<FoodProps | null>(null);
   const [restaurant, setRestaurant] = useState<RestaurantProps | null>(null);
 
@@ -60,19 +55,10 @@ export default function Food() {
   }
 
   return (
-    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-      <View className="min-h-screen">
-        <FoodDescriptionHeader
-          food={food}
-          restaurant={restaurant}
-          statusBarHeight={statusBarHeight}
-        />
-        <FoodDescriptionBody food={food} />
-
-        <View className="mt-auto">
-          <FoodDescriptionFooter food={food} />
-        </View>
-      </View>
-    </ScrollView>
+    <Food
+      food={food}
+      restaurant={restaurant}
+      statusBarHeight={statusBarHeight}
+    />
   );
 }

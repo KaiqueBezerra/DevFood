@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { RestaurantProps } from "../../restaurants";
+import { RestaurantProps } from "@/src/components/index/restaurants";
 
 export function RestaurantDescriptionHeader({
   restaurant,
@@ -48,16 +48,10 @@ export function RestaurantDescriptionHeader({
           </View>
 
           <View className="w-full bottom-8">
-            <View className="flex-row justify-between items-center">
-              <Text className="text-xl font-semibold w-[90%]" numberOfLines={3}>
+            <View className="flex-row items-center">
+              <Text className="text-xl font-semibold" numberOfLines={3}>
                 {restaurant.name} - {restaurant.location}{" "}
               </Text>
-              <Ionicons
-                name="arrow-forward"
-                size={20}
-                color="#121212"
-                className="w-[10%]"
-              />
             </View>
 
             <View className="w-full">

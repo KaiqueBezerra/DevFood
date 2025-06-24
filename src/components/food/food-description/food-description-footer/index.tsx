@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
-import { FoodProps } from "../../trending";
+import { FoodProps } from "../..";
 
 export function FoodDescriptionFooter({ food }: { food: FoodProps }) {
   const [quantity, setQuantity] = useState(1);

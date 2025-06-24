@@ -5,18 +5,7 @@ import { RestaurantsItem } from "./restaurants-item";
 
 import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
-export interface RestaurantProps {
-  id: string;
-  name: string;
-  image: string;
-  bgImage: string;
-  rating: number;
-  location: string;
-  distance: number;
-  time: string;
-  delivery: number;
-  reviews: number;
-}
+import { RestaurantProps } from "../../restaurant";
 
 export function Restaurants() {
   const [restaurants, setRestaurants] = useState<RestaurantProps[]>([]);

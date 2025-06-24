@@ -2,8 +2,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { RestaurantProps } from "../../restaurants";
-import { FoodProps } from "../../trending";
+import { RestaurantProps } from "@/src/components/restaurant";
+import { FoodProps } from "../..";
 
 export function FoodDescriptionHeader({
   food,

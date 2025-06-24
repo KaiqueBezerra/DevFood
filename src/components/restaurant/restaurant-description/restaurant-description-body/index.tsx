@@ -1,10 +1,13 @@
-import { foodApi } from "@/src/repositories/food-repository";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
-import { RestaurantProps } from "../../restaurants";
-import { FoodProps } from "../../trending";
-import { Food } from "../../trending/food";
+
+import { FoodProps } from "../../../index/trending";
+import { Food } from "../../../index/trending/food";
+
+import { RestaurantProps } from "@/src/components/index/restaurants";
+
+import { foodApi } from "@/src/repositories/food-repository";
 
 export function RestaurantDescriptionBody({
   restaurant,
