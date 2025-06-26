@@ -3,6 +3,7 @@ import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
+  Image,
   Text,
   TextInput,
   TouchableOpacity,
@@ -26,11 +27,15 @@ export function Search() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (query.trim().length > 0) {
-      fetchResults();
-    } else {
-      setResults([]);
-    }
+    const delayDebounce = setTimeout(() => {
+      if (query.trim().length > 0) {
+        fetchResults();
+      } else {
+        setResults([]);
+      }
+    }, 500); // Espera 1000ms (1 segundo)
+
+    return () => clearTimeout(delayDebounce); // Limpa o timeout se o usuário digitar antes de 1s
   }, [query]);
 
   const fetchResults = async () => {
@@ -105,10 +110,18 @@ export function Search() {
             <TouchableOpacity
               key={`${item.type}-${item.id}`}
               onPress={() => handlePress(item)}
-              className="py-4 border-b border-gray-200"
+              className="flex flex-row gap-2 items-center py-4 border-b border-gray-200"
             >
-              <Text>{item.name}</Text>
-              <Text className="text-xs text-gray-500">{item.type}</Text>
+              <View>
+                <Image source={{ uri: item.image }} className="w-12 h-12" />
+              </View>
+
+              <View>
+                <Text>{item.name}</Text>
+                <Text className="text-xs text-gray-500">
+                  {item.type === "food" ? "Comida" : "Restaurante"}
+                </Text>
+              </View>
             </TouchableOpacity>
           ))}
         </View>

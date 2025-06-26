@@ -1,11 +1,41 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
+import { RestaurantProps } from "@/src/components/restaurant";
 import { FoodProps } from "../..";
 
-export function FoodDescriptionFooter({ food }: { food: FoodProps }) {
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+export function FoodDescriptionFooter({
+  food,
+  restaurant,
+}: {
+  food: FoodProps;
+  restaurant: RestaurantProps;
+}) {
   const [quantity, setQuantity] = useState(1);
+
+  const handleSubmit = async () => {
+    const item = {
+      id: food.id,
+      quantity: quantity,
+      restaurantId: restaurant.id,
+      price: food.price,
+      restaurantImage: restaurant.image,
+    };
+
+    await AsyncStorage.setItem("@food", JSON.stringify(item));
+  };
+
+  useEffect(() => {
+    const getItem = async () => {
+      const stored = await AsyncStorage.getItem("@food");
+      console.log(stored);
+    };
+
+    getItem();
+  }, []);
 
   const handleDecrease = () => {
     if (quantity > 1) {
@@ -44,8 +74,9 @@ export function FoodDescriptionFooter({ food }: { food: FoodProps }) {
           backgroundColor: isAddDisabled ? "#dedede" : "#EA1D2C",
         }}
         activeOpacity={0.7}
+        onPress={handleSubmit}
       >
-        <Text className="text-white font-semibold">Adicionar </Text>
+        <Text className="text-white font-semibold">Adicionar</Text>
         <Text className="text-white font-semibold">{formattedTotal}</Text>
       </TouchableOpacity>
     </View>

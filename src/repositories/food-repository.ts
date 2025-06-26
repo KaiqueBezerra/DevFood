@@ -3,7 +3,7 @@ import { api } from "../services/api/api";
 export const foodApi = {
   async getFoods() {
     try {
-      const { data, status } = await api.get("foods");
+      const { data, status } = await api.get("foods?_page=1&_limit=10");
       return { data, status };
     } catch (error) {
       console.error("Erro ao buscar refeições:", error);

@@ -298,6 +298,187 @@
       "rating": 4.9,
       "image": "https://cdn.pixabay.com/photo/2022/04/04/09/04/hamburguer-7110676_1280.jpg",
       "restaurantId": "5"
+    },
+    {
+      "id": "11",
+      "name": "3 Costeletas de Galinha com Alface",
+      "description": "Três suculentas costeletas de galinha fritas no estilo KFC, acompanhadas de alface fresca e crocante. Uma combinação leve, crocante e cheia de sabor.",
+      "tags": [
+        "#costeleta",
+        "#frango",
+        "#kfc",
+        "#frangofrito",
+        "#alface",
+        "#crocante",
+        "#refeicaoleve",
+        "#saboroso",
+        "#delicioso",
+        "#crispy"
+      ],
+      "price": 24.99,
+      "time": "25-35 min",
+      "delivery": 7.99,
+      "rating": 4.6,
+      "image": "https://cdn.pixabay.com/photo/2016/04/25/07/32/chicken-cutlet-1351331_1280.jpg",
+      "restaurantId": "1"
+    },
+    {
+      "id": "12",
+      "name": "Frango Assado com Fritas",
+      "description": "Frango assado suculento no ponto certo, com pele dourada e crocante, servido com batatas fritas sequinhas e crocantes. Um clássico do KFC que nunca decepciona.",
+      "tags": [
+        "#frangoassado",
+        "#kfc",
+        "#batatafrita",
+        "#frango",
+        "#clássico",
+        "#delicioso",
+        "#suculento",
+        "#comfortfood",
+        "#frangonoforno",
+        "#combokfc"
+      ],
+      "price": 32.9,
+      "time": "30-40 min",
+      "delivery": 7.99,
+      "rating": 4.7,
+      "image": "https://cdn.pixabay.com/photo/2022/05/06/16/17/broasted-chicken-7178658_1280.jpg",
+      "restaurantId": "1"
+    },
+    {
+      "id": "13",
+      "name": "Beef Burguer Mc",
+      "description": "Hambúrguer 100% carne bovina grelhada, servido em pão macio com mostarda, ketchup, picles e cebola picada. Um clássico simples, direto e saboroso do McDonald's.",
+      "tags": [
+        "#hamburguer",
+        "#beef",
+        "#mcdonalds",
+        "#carnebovina",
+        "#classico",
+        "#fastfood",
+        "#delicioso",
+        "#lanche",
+        "#tradicional"
+      ],
+      "price": 17.99,
+      "time": "15-25 min",
+      "delivery": 5.99,
+      "rating": 4.4,
+      "image": "https://cdn.pixabay.com/photo/2022/06/14/18/58/beef-burger-7262651_1280.jpg",
+      "restaurantId": "2"
+    },
+    {
+      "id": "14",
+      "name": "X-Burguer Mc",
+      "description": "Pão clássico com hambúrguer grelhado, queijo derretido e aquele toque inconfundível do McDonald's. Um lanche simples que conquista pela suculência e sabor.",
+      "tags": [
+        "#xburguer",
+        "#queijo",
+        "#hamburguer",
+        "#mcdonalds",
+        "#cheeseburguer",
+        "#fastfood",
+        "#lanche",
+        "#simples",
+        "#delicioso",
+        "#classico"
+      ],
+      "price": 19.9,
+      "time": "15-25 min",
+      "delivery": 5.99,
+      "rating": 4.5,
+      "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_1280.jpg",
+      "restaurantId": "2"
+    },
+    {
+      "id": "15",
+      "name": "Takoyaki",
+      "description": "Seis deliciosas bolinhas japonesas feitas com massa leve e recheadas com polvo, cobertas com molho tarê, maionese japonesa, alga nori e flocos de peixe seco. Crocantes por fora e macias por dentro!",
+      "tags": [
+        "#takoyaki",
+        "#japonesa",
+        "#polvo",
+        "#sushidev",
+        "#bolinhas",
+        "#snackoriental",
+        "#tradicional",
+        "#streetfood",
+        "#delicioso"
+      ],
+      "price": 21.9,
+      "time": "20-30 min",
+      "delivery": 9.99,
+      "rating": 4.7,
+      "image": "https://cdn.pixabay.com/photo/2020/05/08/02/13/octopus-dumplings-5143845_1280.jpg",
+      "restaurantId": "4"
+    },
+    {
+      "id": "16",
+      "name": "Bento Box Sushi Dev",
+      "description": "Uma refeição japonesa completa em uma única caixa: frango grelhado com molho teriyaki, legumes refogados, sunomono e um toque de wasabi. Perfeita para quem quer equilíbrio e sabor!",
+      "tags": [
+        "#bento",
+        "#comidajaponesa",
+        "#sushidev",
+        "#teriyaki",
+        "#frangogrelhado",
+        "#refeicaocompleta",
+        "#arrozjapones",
+        "#tradicional",
+        "#delicioso"
+      ],
+      "price": 36.5,
+      "time": "30-45 min",
+      "delivery": 9.99,
+      "rating": 4.8,
+      "image": "https://cdn.pixabay.com/photo/2022/02/11/07/03/bento-7006664_1280.jpg",
+      "restaurantId": "4"
+    },
+    {
+      "id": "17",
+      "name": "Marmita Completa com Frango",
+      "description": "Uma refeição saborosa e equilibrada: arroz branco soltinho, feijão caseiro temperado, frango grelhado e legumes cozidos no vapor. Ideal para o dia a dia com aquele gostinho de comida feita em casa.",
+      "tags": [
+        "#marmita",
+        "#frango",
+        "#arroz",
+        "#feijao",
+        "#legumes",
+        "#comidacaseira",
+        "#almoço",
+        "#refeicaocompleta",
+        "#saudavel",
+        "#marmitasexpress"
+      ],
+      "price": 18.9,
+      "time": "15-25 min",
+      "delivery": 3.99,
+      "rating": 4.6,
+      "image": "https://images.pexels.com/photos/30635715/pexels-photo-30635715.jpeg?_gl=1*bbkc70*_ga*MTIwNTkwMTcxMy4xNzUwMTk5MzUw*_ga_8JE65Q40S6*czE3NTA5NTQ0NTYkbzIkZzEkdDE3NTA5NTQ0OTkkajE3JGwwJGgw",
+      "restaurantId": "6"
+    },
+    {
+      "id": "18",
+      "name": "Batata Frita Outback",
+      "description": "Porção generosa de batatas fritas crocantes, temperadas com a mistura especial da casa. Servidas bem quentinhas, são perfeitas para compartilhar ou acompanhar seu prato favorito.",
+      "tags": [
+        "#batatafrita",
+        "#outback",
+        "#aperitivo",
+        "#crocante",
+        "#porcao",
+        "#lanche",
+        "#delicioso",
+        "#snack",
+        "#compartilhar",
+        "#fritas"
+      ],
+      "price": 22.9,
+      "time": "20-30 min",
+      "delivery": 7.99,
+      "rating": 4.6,
+      "image": "https://cdn.pixabay.com/photo/2024/09/02/10/23/ai-generated-9016388_1280.jpg",
+      "restaurantId": "3"
     }
   ]
 }

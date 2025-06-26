@@ -39,7 +39,7 @@ export function Food({
         <FoodDescriptionBody food={food} />
 
         <View className="mt-auto">
-          <FoodDescriptionFooter food={food} />
+          <FoodDescriptionFooter food={food} restaurant={restaurant} />
         </View>
       </View>
     </ScrollView>
