@@ -2,12 +2,12 @@ import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 
-import { FoodProps } from "../../../index/trending";
-import { Food } from "../../../index/trending/food";
-
-import { RestaurantProps } from "@/src/components/index/restaurants";
+import { FoodItem } from "../../../index/trending/food";
 
 import { foodApi } from "@/src/repositories/food-repository";
+
+import { FoodProps } from "@/src/components/food";
+import { RestaurantProps } from "../..";
 
 export function RestaurantDescriptionBody({
   restaurant,
@@ -38,7 +38,7 @@ export function RestaurantDescriptionBody({
       <Text className="text-2xl font-semibold px-4 mb-4">Destaques</Text>
       <FlatList
         data={foods}
-        renderItem={({ item }) => <Food food={item} />}
+        renderItem={({ item }) => <FoodItem food={item} />}
         horizontal={true}
         contentContainerStyle={{ gap: 14, paddingLeft: 16, paddingRight: 16 }}
         showsHorizontalScrollIndicator={false}

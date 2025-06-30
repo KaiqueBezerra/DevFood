@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { RestaurantProps } from "@/src/components/index/restaurants";
+import { RestaurantProps } from "../..";
 
 export function RestaurantDescriptionHeader({
   restaurant,
@@ -28,7 +28,7 @@ export function RestaurantDescriptionHeader({
     <View className="w-full relative">
       <Image source={{ uri: restaurant.bgImage }} className="w-full h-60" />
 
-      <View className="w-full px-4 absolute" style={{ top: statusBarHeight }}>
+      <View className="w-full px-6 absolute" style={{ top: statusBarHeight }}>
         <TouchableOpacity
           className="w-10 h-10 bg-white rounded-full items-center justify-center"
           onPress={() => router.back()}

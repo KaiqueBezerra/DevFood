@@ -1,6 +1,7 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
 
 export interface CartItem {
@@ -26,8 +27,6 @@ export function CartPreview() {
     getItem();
   }, []);
 
-  console.log(item);
-
   if (!item) {
     return null;
   }
@@ -43,9 +42,12 @@ export function CartPreview() {
           <Text className="text-gray-500 text-sm">Total sem a entrega</Text>
           <View className="flex flex-row items-center">
             <Text className="font-semibold">
-              R$ {item.quantity * item.price} /{" "}
+              R$ {item.quantity * item.price}
             </Text>
-            <Text className="text-gray-500 text-sm">{item.quantity} itens</Text>
+            <Text className="text-gray-500 text-sm">
+              {" "}
+              / {item.quantity} {item.quantity > 1 ? "itens" : "item"}
+            </Text>
           </View>
         </View>
       </View>
@@ -55,6 +57,8 @@ export function CartPreview() {
         style={{
           backgroundColor: "#EA1D2C",
         }}
+        activeOpacity={0.7}
+        onPress={() => router.push("/cart/page")}
       >
         <Text className="text-white font-semibold">Ver sacola</Text>
       </TouchableOpacity>

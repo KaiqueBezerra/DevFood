@@ -4,7 +4,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { FoodProps } from "@/src/components/food";
 
-export function Food({ food }: { food: FoodProps }) {
+export function FoodItem({ food }: { food: FoodProps }) {
   return (
     <TouchableOpacity
       className="flex flex-col rounded-xl relative w-44"

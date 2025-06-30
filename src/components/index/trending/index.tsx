@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { FlatList, Text } from "react-native";
 
 import { FoodProps } from "../../food";
-import { Food } from "./food";
+import { FoodItem } from "./food";
 
 export function TrendingFoods() {
   const [foods, setFoods] = useState<FoodProps[]>([]);
@@ -30,7 +30,7 @@ export function TrendingFoods() {
   return (
     <FlatList
       data={foods}
-      renderItem={({ item }) => <Food food={item} />}
+      renderItem={({ item }) => <FoodItem food={item} />}
       horizontal={true}
       contentContainerStyle={{ gap: 14, paddingLeft: 16, paddingRight: 16 }}
       showsHorizontalScrollIndicator={false}

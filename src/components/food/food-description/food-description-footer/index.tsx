@@ -30,8 +30,7 @@ export function FoodDescriptionFooter({
 
   useEffect(() => {
     const getItem = async () => {
-      const stored = await AsyncStorage.getItem("@food");
-      console.log(stored);
+      await AsyncStorage.getItem("@food");
     };
 
     getItem();

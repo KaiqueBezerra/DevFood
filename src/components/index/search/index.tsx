@@ -16,7 +16,7 @@ import { restaurantApi } from "@/src/repositories/restaurant-repository";
 import { FoodProps } from "../../food";
 import { RestaurantProps } from "../../restaurant";
 
-// Tipo do item
+// Item type
 type SearchItem =
   | (FoodProps & { type: "food" })
   | (RestaurantProps & { type: "restaurant" });
@@ -33,9 +33,9 @@ export function Search() {
       } else {
         setResults([]);
       }
-    }, 500); // Espera 1000ms (1 segundo)
+    }, 500);
 
-    return () => clearTimeout(delayDebounce); // Limpa o timeout se o usuário digitar antes de 1s
+    return () => clearTimeout(delayDebounce); // clean the timeout if the user types before 1s
   }, [query]);
 
   const fetchResults = async () => {
