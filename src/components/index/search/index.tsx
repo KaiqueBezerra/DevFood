@@ -13,8 +13,10 @@ import {
 import { foodApi } from "@/src/repositories/food-repository";
 import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
-import { FoodProps } from "../../food";
-import { RestaurantProps } from "../../restaurant";
+import { FoodProps } from "@/src/types/food";
+import { RestaurantProps } from "@/src/types/restaurant";
+
+
 
 // Item type
 type SearchItem =

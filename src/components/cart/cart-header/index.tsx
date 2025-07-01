@@ -4,7 +4,7 @@ import { Pressable, Text, View } from "react-native";
 
 export function CartHeader() {
   return (
-    <View className="px-4 flex-row w-full items-center justify-between">
+    <View className="flex-row w-full px-6 items-center justify-between">
       <Pressable
         onPress={() => {
           router.back();

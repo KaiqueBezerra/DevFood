@@ -3,18 +3,7 @@ import { ScrollView, View } from "react-native";
 import { RestaurantDescriptionBody } from "./restaurant-description/restaurant-description-body";
 import { RestaurantDescriptionHeader } from "./restaurant-description/restaurant-description-header";
 
-export interface RestaurantProps {
-  id: string;
-  name: string;
-  image: string;
-  bgImage: string;
-  rating: number;
-  location: string;
-  distance: number;
-  time: string;
-  delivery: number;
-  reviews: number;
-}
+import { RestaurantProps } from "@/src/types/restaurant";
 
 export function Restaurant({
   restaurant,

@@ -2,10 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
-import { RestaurantProps } from "@/src/components/restaurant";
-import { FoodProps } from "../..";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { useCart } from "@/src/context/cart-context";
+import { FoodProps } from "@/src/types/food";
+import { RestaurantProps } from "@/src/types/restaurant";
 
 export function FoodDescriptionFooter({
   food,
@@ -16,16 +17,23 @@ export function FoodDescriptionFooter({
 }) {
   const [quantity, setQuantity] = useState(1);
 
+  const { addToCart } = useCart();
+
   const handleSubmit = async () => {
     const item = {
       id: food.id,
+      name: food.name,
+      description: food.description,
+      image: food.image,
       quantity: quantity,
       restaurantId: restaurant.id,
       price: food.price,
       restaurantImage: restaurant.image,
+      location: restaurant.location,
+      delivery: food.delivery,
     };
 
-    await AsyncStorage.setItem("@food", JSON.stringify(item));
+    await addToCart(item);
   };
 
   useEffect(() => {
@@ -49,7 +57,7 @@ export function FoodDescriptionFooter({
   const isAddDisabled = total < price;
 
   return (
-    <View className="w-full flex-row px-6 py-4 items-center border-t border-gray-100">
+    <View className="w-full flex-row px-6 py-4 relative top-10 items-center border-t border-gray-100">
       <View className="flex-row items-center gap-6 w-[20%]">
         <TouchableOpacity onPress={handleDecrease} disabled={quantity === 1}>
           <Ionicons

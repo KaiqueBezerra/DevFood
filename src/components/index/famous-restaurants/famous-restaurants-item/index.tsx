@@ -1,7 +1,7 @@
+import { RestaurantProps } from "@/src/types/restaurant";
+
 import { router } from "expo-router";
 import { Image, Text, TouchableOpacity } from "react-native";
-
-import { RestaurantProps } from "@/src/components/restaurant";
 
 export function FamousRestaurantItem({
   restaurant,

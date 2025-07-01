@@ -1,31 +1,29 @@
 import { ScrollView, View } from "react-native";
 
-import { CartHeader } from "./cart-header";
-
 import Constants from "expo-constants";
 
-import { FoodProps } from "../food";
-import { RestaurantProps } from "../restaurant";
 import { CartBody } from "./cart-body";
+import { CartFooter } from "./cart-footer";
+import { CartHeader } from "./cart-header";
+
+import { CartItemProps } from "@/src/types/cart";
 
 const statusBarHeight = Constants.statusBarHeight;
 
-export function Cart({
-  food,
-  restaurant,
-}: {
-  food: FoodProps;
-  restaurant: RestaurantProps;
-}) {
+export function Cart({ cart }: { cart: CartItemProps }) {
   return (
     <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
       <View
-        className="w-full px-4 gap-8"
+        className="min-h-screen w-full gap-8"
         style={{ marginTop: statusBarHeight + 8 }}
       >
         <CartHeader />
 
-        <CartBody restaurant={restaurant} food={food} />
+        <CartBody cart={cart} />
+
+        <View className="mt-auto">
+          <CartFooter cart={cart} />
+        </View>
       </View>
     </ScrollView>
   );

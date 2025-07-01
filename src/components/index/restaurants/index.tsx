@@ -5,7 +5,7 @@ import { RestaurantsItem } from "./restaurants-item";
 
 import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
-import { RestaurantProps } from "../../restaurant";
+import { RestaurantProps } from "@/src/types/restaurant";
 
 export function Restaurants() {
   const [restaurants, setRestaurants] = useState<RestaurantProps[]>([]);

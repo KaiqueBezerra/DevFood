@@ -5,7 +5,9 @@ import Constants from "expo-constants";
 
 import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
-import { Restaurant, RestaurantProps } from "@/src/components/restaurant";
+import { Restaurant } from "@/src/components/restaurant";
+
+import { RestaurantProps } from "@/src/types/restaurant";
 
 const statusBarHeight = Constants.statusBarHeight;
 

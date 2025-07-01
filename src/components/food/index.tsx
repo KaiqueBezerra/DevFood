@@ -4,20 +4,8 @@ import { FoodDescriptionBody } from "./food-description/food-description-body";
 import { FoodDescriptionFooter } from "./food-description/food-description-footer";
 import { FoodDescriptionHeader } from "./food-description/food-description-header";
 
-import { RestaurantProps } from "../restaurant";
-
-export interface FoodProps {
-  id: string;
-  name: string;
-  description: string;
-  tags: string[];
-  price: number;
-  time: string;
-  delivery: number;
-  rating: number;
-  image: string;
-  restaurantId: string;
-}
+import { FoodProps } from "@/src/types/food";
+import { RestaurantProps } from "@/src/types/restaurant";
 
 export function Food({
   food,
@@ -30,7 +18,7 @@ export function Food({
 }) {
   return (
     <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-      <View className="min-h-screen">
+      <View className="min-h-screen w-full">
         <FoodDescriptionHeader
           food={food}
           restaurant={restaurant}

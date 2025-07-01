@@ -1,40 +1,17 @@
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
-import { router, usePathname } from "expo-router";
+import { router } from "expo-router";
 
-import { useCart } from "@/src/context/cart-context";
+import { CartItemProps } from "@/src/types/cart";
 
-// export interface CartItem {
-//   id: string;
-//   quantity: number;
-//   restaurantId: number;
-//   price: number;
-//   restaurantImage: string;
-// }
-
-export function CartPreview() {
-  const pathname = usePathname();
-  const { cart } = useCart();
-
-  if (pathname.includes("/cart") || pathname.includes("/food")) {
-    return null;
-  }
-
-  if (!cart) {
-    return null;
-  }
-
-  const total = cart.quantity * cart.price;
+export function CartFooter({ cart }: { cart: CartItemProps }) {
+  const total = cart.quantity * cart.price + cart.delivery;
 
   return (
     <View className="w-full flex-row px-6 py-4 pb-6 items-center border-t border-gray-100">
       <View className="flex-row items-center gap-2 w-[50%]">
-        <Image
-          source={{ uri: cart.restaurantImage }}
-          className="w-10 h-10 rounded-full"
-        />
         <View>
-          <Text className="text-gray-500 text-sm">Total sem a entrega</Text>
+          <Text className="text-gray-500 text-sm">Total com a entrega</Text>
           <View className="flex flex-row items-center">
             <Text className="font-semibold">
               R$ {total.toFixed(2).replace(".", ",")}
@@ -55,7 +32,7 @@ export function CartPreview() {
         activeOpacity={0.7}
         onPress={() => router.push("/cart/page")}
       >
-        <Text className="text-white font-semibold">Ver sacola</Text>
+        <Text className="text-white font-semibold">Continuar</Text>
       </TouchableOpacity>
     </View>
   );

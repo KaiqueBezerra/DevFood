@@ -3,15 +3,18 @@ import "../styles/global.css";
 
 import { Slot } from "expo-router";
 import { CartPreview } from "../components/cart-preview";
+import { CartProvider } from "../context/cart-context";
 
 export default function RootLayout() {
   return (
-    <View className="flex-1">
+    <CartProvider>
       <View className="flex-1">
-        <Slot />
-      </View>
+        <View className="flex-1">
+          <Slot />
+        </View>
 
-      <CartPreview />
-    </View>
+        <CartPreview />
+      </View>
+    </CartProvider>
   );
 }

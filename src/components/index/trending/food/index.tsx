@@ -1,8 +1,9 @@
+import { FoodProps } from "@/src/types/food";
+
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { FoodProps } from "@/src/components/food";
 
 export function FoodItem({ food }: { food: FoodProps }) {
   return (

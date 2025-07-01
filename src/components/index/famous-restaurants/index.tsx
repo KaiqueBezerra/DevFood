@@ -5,7 +5,7 @@ import { FamousRestaurantItem } from "./famous-restaurants-item";
 
 import { restaurantApi } from "@/src/repositories/restaurant-repository";
 
-import { RestaurantProps } from "../../restaurant";
+import { RestaurantProps } from "@/src/types/restaurant";
 
 export function FamousRestaurants() {
   const [restaurants, setRestaurants] = useState<RestaurantProps[]>([]);

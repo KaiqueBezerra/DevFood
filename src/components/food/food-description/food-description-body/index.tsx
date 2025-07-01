@@ -1,6 +1,6 @@
-import { Text, View } from "react-native";
+import { FoodProps } from "@/src/types/food";
 
-import { FoodProps } from "../..";
+import { Text, View } from "react-native";
 
 export function FoodDescriptionBody({ food }: { food: FoodProps }) {
   return (
