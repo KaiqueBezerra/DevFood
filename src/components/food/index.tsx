@@ -17,19 +17,37 @@ export function Food({
   statusBarHeight: number;
 }) {
   return (
-    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-      <View className="min-h-screen w-full">
-        <FoodDescriptionHeader
-          food={food}
-          restaurant={restaurant}
-          statusBarHeight={statusBarHeight}
-        />
-        <FoodDescriptionBody food={food} />
-
-        <View className="mt-auto">
-          <FoodDescriptionFooter food={food} restaurant={restaurant} />
+    <View style={{ flex: 1 }}>
+      {/* Conteúdo rolável */}
+      <ScrollView
+        style={{ flex: 1, marginBottom: 100 }}
+        contentContainerStyle={{ paddingBottom: 32 }}
+        showsVerticalScrollIndicator={false}
+      >
+        <View className="w-full">
+          <FoodDescriptionHeader
+            food={food}
+            restaurant={restaurant}
+            statusBarHeight={statusBarHeight}
+          />
+          <FoodDescriptionBody food={food} />
         </View>
+      </ScrollView>
+
+      {/* Footer fixo */}
+      <View
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: "white",
+          borderTopWidth: 1,
+          borderColor: "#eee",
+        }}
+      >
+        <FoodDescriptionFooter food={food} restaurant={restaurant} />
       </View>
-    </ScrollView>
+    </View>
   );
 }

@@ -92,7 +92,6 @@
       ],
       "price": 39.99,
       "time": "30-45 min",
-      "delivery": 8.99,
       "rating": 4.8,
       "image": "https://i.imgur.com/CEVUdju.png",
       "restaurantId": "1"
@@ -115,7 +114,6 @@
       ],
       "price": 29.99,
       "time": "10-15 min",
-      "delivery": 1.99,
       "rating": 4.9,
       "image": "https://i.imgur.com/uXRuDFD.png",
       "restaurantId": "6"
@@ -138,7 +136,6 @@
       ],
       "price": 49.99,
       "time": "50-60 min",
-      "delivery": 15.99,
       "rating": 4.5,
       "image": "https://i.imgur.com/O5c3lyU.png",
       "restaurantId": "5"
@@ -161,7 +158,6 @@
       ],
       "price": 35.99,
       "time": "30-45 min",
-      "delivery": 8.99,
       "rating": 4.4,
       "image": "https://i.imgur.com/0UjG3wk.png",
       "restaurantId": "3"
@@ -183,7 +179,6 @@
       ],
       "price": 19.99,
       "time": "30-45 min",
-      "delivery": 8.99,
       "rating": 4.4,
       "image": "https://i.imgur.com/BaUUCkc.png",
       "restaurantId": "3"
@@ -205,7 +200,6 @@
       ],
       "price": 29.99,
       "time": "20-35 min",
-      "delivery": 8.99,
       "rating": 4.6,
       "image": "https://images.rappi.com.br/restaurants_background/mcdonaldscol-1660251233628.jpg",
       "restaurantId": "2"
@@ -227,7 +221,6 @@
       ],
       "price": 22.99,
       "time": "20-30 min",
-      "delivery": 7.99,
       "rating": 4.7,
       "image": "https://cdn.pixabay.com/photo/2022/05/12/17/05/hamburger-7191898_1280.jpg",
       "restaurantId": "5"
@@ -249,7 +242,6 @@
       ],
       "price": 39.99,
       "time": "35-50 min",
-      "delivery": 9.99,
       "rating": 4.8,
       "image": "https://cdn.pixabay.com/photo/2023/07/07/17/47/sushi-8113165_1280.jpg",
       "restaurantId": "4"
@@ -271,7 +263,6 @@
       ],
       "price": 17.99,
       "time": "25-40 min",
-      "delivery": 6.99,
       "rating": 4.5,
       "image": "https://cdn.pixabay.com/photo/2016/11/19/14/18/delicious-1839514_1280.jpg",
       "restaurantId": "6"
@@ -294,7 +285,6 @@
       ],
       "price": 499.99,
       "time": "60-90 min",
-      "delivery": 19.99,
       "rating": 4.9,
       "image": "https://cdn.pixabay.com/photo/2022/04/04/09/04/hamburguer-7110676_1280.jpg",
       "restaurantId": "5"
@@ -317,7 +307,6 @@
       ],
       "price": 24.99,
       "time": "25-35 min",
-      "delivery": 7.99,
       "rating": 4.6,
       "image": "https://cdn.pixabay.com/photo/2016/04/25/07/32/chicken-cutlet-1351331_1280.jpg",
       "restaurantId": "1"
@@ -340,7 +329,6 @@
       ],
       "price": 32.9,
       "time": "30-40 min",
-      "delivery": 7.99,
       "rating": 4.7,
       "image": "https://cdn.pixabay.com/photo/2022/05/06/16/17/broasted-chicken-7178658_1280.jpg",
       "restaurantId": "1"
@@ -362,7 +350,6 @@
       ],
       "price": 17.99,
       "time": "15-25 min",
-      "delivery": 5.99,
       "rating": 4.4,
       "image": "https://cdn.pixabay.com/photo/2022/06/14/18/58/beef-burger-7262651_1280.jpg",
       "restaurantId": "2"
@@ -383,9 +370,8 @@
         "#delicioso",
         "#classico"
       ],
-      "price": 19.9,
+      "price": 19.99,
       "time": "15-25 min",
-      "delivery": 5.99,
       "rating": 4.5,
       "image": "https://cdn.pixabay.com/photo/2020/10/05/19/55/hamburger-5630646_1280.jpg",
       "restaurantId": "2"
@@ -407,7 +393,6 @@
       ],
       "price": 21.9,
       "time": "20-30 min",
-      "delivery": 9.99,
       "rating": 4.7,
       "image": "https://cdn.pixabay.com/photo/2020/05/08/02/13/octopus-dumplings-5143845_1280.jpg",
       "restaurantId": "4"
@@ -429,7 +414,6 @@
       ],
       "price": 36.5,
       "time": "30-45 min",
-      "delivery": 9.99,
       "rating": 4.8,
       "image": "https://cdn.pixabay.com/photo/2022/02/11/07/03/bento-7006664_1280.jpg",
       "restaurantId": "4"
@@ -452,7 +436,6 @@
       ],
       "price": 18.9,
       "time": "15-25 min",
-      "delivery": 3.99,
       "rating": 4.6,
       "image": "https://images.pexels.com/photos/30635715/pexels-photo-30635715.jpeg?_gl=1*bbkc70*_ga*MTIwNTkwMTcxMy4xNzUwMTk5MzUw*_ga_8JE65Q40S6*czE3NTA5NTQ0NTYkbzIkZzEkdDE3NTA5NTQ0OTkkajE3JGwwJGgw",
       "restaurantId": "6"
@@ -475,7 +458,6 @@
       ],
       "price": 22.9,
       "time": "20-30 min",
-      "delivery": 7.99,
       "rating": 4.6,
       "image": "https://cdn.pixabay.com/photo/2024/09/02/10/23/ai-generated-9016388_1280.jpg",
       "restaurantId": "3"

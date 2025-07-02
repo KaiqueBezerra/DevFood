@@ -1,6 +1,5 @@
-import { ScrollView, View } from "react-native";
-
 import Constants from "expo-constants";
+import { ScrollView, View } from "react-native";
 
 import { CartBody } from "./cart-body";
 import { CartFooter } from "./cart-footer";
@@ -10,21 +9,25 @@ import { CartItemProps } from "@/src/types/cart";
 
 const statusBarHeight = Constants.statusBarHeight;
 
-export function Cart({ cart }: { cart: CartItemProps }) {
+export function Cart({ cart }: { cart: CartItemProps[] }) {
   return (
-    <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
-      <View
-        className="min-h-screen w-full gap-8"
-        style={{ marginTop: statusBarHeight + 8 }}
+    <View style={{ flex: 1, paddingTop: statusBarHeight }}>
+      {/* Conteúdo rolável */}
+      <ScrollView
+        style={{ flex: 1, marginBottom: 100 }} // espaço para o footer não cobrir
+        contentContainerStyle={{ paddingBottom: 32 }}
+        showsVerticalScrollIndicator={false}
       >
-        <CartHeader />
-
-        <CartBody cart={cart} />
-
-        <View className="mt-auto">
-          <CartFooter cart={cart} />
+        <View className="w-full gap-8">
+          <CartHeader />
+          <CartBody cart={cart} />
         </View>
+      </ScrollView>
+
+      {/* Footer fixo */}
+      <View className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100">
+        <CartFooter cart={cart} />
       </View>
-    </ScrollView>
+    </View>
   );
 }

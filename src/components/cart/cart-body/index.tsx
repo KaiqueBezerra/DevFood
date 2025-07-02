@@ -6,21 +6,28 @@ import { FoodItem } from "../../index/trending/food";
 
 import { foodApi } from "@/src/repositories/food-repository";
 
+import { useCart } from "@/src/context/cart-context";
+
 import { CartItemProps } from "@/src/types/cart";
 import { FoodProps } from "@/src/types/food";
 
-export function CartBody({ cart }: { cart: CartItemProps }) {
-  const [quantity, setQuantity] = useState(cart.quantity);
+export function CartBody({ cart }: { cart: CartItemProps[] }) {
+  const { setCart } = useCart();
   const [foods, setFoods] = useState<FoodProps[]>([]);
+
+  const restaurantId = cart[0]?.restaurantId;
+  const restaurantImage = cart[0]?.restaurantImage;
 
   useEffect(() => {
     const getFoods = async () => {
+      if (!restaurantId) return;
+
       const { data, status } = await foodApi.getFoodsByRestaurant({
-        id: cart.restaurantId,
+        id: restaurantId,
       });
 
       if (status !== 200) {
-        console.error("Erro ao buscar refeições:", status);
+        console.error("Erro ao buscar refeições:", status);
         return;
       }
 
@@ -28,73 +35,89 @@ export function CartBody({ cart }: { cart: CartItemProps }) {
     };
 
     getFoods();
-  }, [cart.restaurantId]);
+  }, [restaurantId]);
 
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  const updateQuantity = async (itemId: string, amount: number) => {
+    const updated = cart
+      .map((item) => {
+        if (item.id === itemId) {
+          const newQty = item.quantity + amount;
+          return newQty > 0 ? { ...item, quantity: newQty } : null;
+        }
+        return item;
+      })
+      .filter(Boolean) as CartItemProps[];
+
+    setCart(updated);
   };
 
-  const subtotal = quantity * cart.price;
-  const total = cart.delivery ? subtotal + cart.delivery : subtotal;
+  const subtotal = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  const delivery = 5.99; // ou cart[0]?.delivery, se existir
+  const total = subtotal + delivery;
 
   return (
     <View className="w-full px-6 gap-8">
+      {/* Header */}
       <View className="w-full flex-row items-center gap-4">
         <Image
-          source={{ uri: cart.restaurantImage }}
+          source={{ uri: restaurantImage }}
           className="size-10 rounded-full w-[10%]"
         />
         <View className="w-[80%]">
           <Text className="font-semibold text-lg" numberOfLines={1}>
-            {cart.name} - {cart.location}
+            {cart[0]?.restaurantName} - {cart[0]?.location}
           </Text>
-
           <Text className="font-semibold" style={{ color: "#EA1D2C" }}>
             Adicionar mais itens
           </Text>
         </View>
       </View>
 
+      {/* Itens adicionados */}
       <View className="w-full">
         <Text className="text-lg font-semibold mb-6">Itens adicionados</Text>
 
-        <View className="w-full flex-row gap-4">
-          <Image source={{ uri: cart.image }} className="size-16 rounded-lg" />
+        {cart.map((item) => (
+          <View key={item.id} className="w-full flex-row gap-4 mb-4">
+            <Image
+              source={{ uri: item.image }}
+              className="size-16 rounded-lg"
+            />
 
-          <View className="flex-row justify-between w-[80%] gap-2">
-            <View className="w-[65%]">
-              <Text className="font-semibold" numberOfLines={1}>
-                {cart.name}
-              </Text>
+            <View className="flex-row justify-between w-[80%] gap-2">
+              <View className="w-[65%]">
+                <Text className="font-semibold" numberOfLines={1}>
+                  {item.name}
+                </Text>
 
-              <Text className="text-sm text-gray-500" numberOfLines={1}>
-                {cart.description}
-              </Text>
+                <Text className="text-sm text-gray-500" numberOfLines={1}>
+                  {item.description}
+                </Text>
 
-              <Text className="font-semibold mt-2">R$ {cart.price}</Text>
-            </View>
+                <Text className="font-semibold mt-2">R$ {item.price}</Text>
+              </View>
 
-            <View className="flex-row w-[35%] bg-gray-100 rounded-lg h-12 items-center justify-between px-1">
-              {quantity === 1 ? (
-                <TouchableOpacity onPress={handleDecrease}>
-                  <Ionicons name="trash" size={20} color="#EA1D2C" />
+              <View className="flex-row w-[35%] bg-gray-100 rounded-lg h-12 items-center justify-between px-1">
+                <TouchableOpacity onPress={() => updateQuantity(item.id, -1)}>
+                  <Ionicons
+                    name={item.quantity === 1 ? "trash" : "remove"}
+                    size={20}
+                    color="#EA1D2C"
+                  />
                 </TouchableOpacity>
-              ) : (
-                <TouchableOpacity onPress={handleDecrease}>
-                  <Ionicons name="remove" size={20} color="#EA1D2C" />
+
+                <Text>{item.quantity}</Text>
+
+                <TouchableOpacity onPress={() => updateQuantity(item.id, 1)}>
+                  <Ionicons name="add" size={20} color="#EA1D2C" />
                 </TouchableOpacity>
-              )}
-
-              <Text>{quantity}</Text>
-
-              <TouchableOpacity onPress={() => setQuantity(quantity + 1)}>
-                <Ionicons name="add" size={20} color="#EA1D2C" />
-              </TouchableOpacity>
+              </View>
             </View>
           </View>
-        </View>
+        ))}
 
         <Text
           className="font-semibold text-center mt-8"
@@ -104,18 +127,20 @@ export function CartBody({ cart }: { cart: CartItemProps }) {
         </Text>
       </View>
 
+      {/* Peça também */}
       <View>
         <Text className="font-semibold text-lg mb-4">Peça Também</Text>
 
         <FlatList
           data={foods}
           renderItem={({ item }) => <FoodItem food={item} />}
-          horizontal={true}
+          horizontal
           contentContainerStyle={{ gap: 14, paddingRight: 16 }}
           showsHorizontalScrollIndicator={false}
         />
       </View>
 
+      {/* Resumo de valores */}
       <View>
         <Text className="font-semibold text-lg mb-4">Resumo de valores</Text>
 
@@ -130,7 +155,7 @@ export function CartBody({ cart }: { cart: CartItemProps }) {
           <View className="flex-row justify-between">
             <Text className="text-gray-500 text-sm">Taxa de entrega</Text>
             <Text className="text-gray-500 text-sm">
-              R$ {cart.delivery.toFixed(2).replace(".", ",")}
+              R$ {delivery.toFixed(2).replace(".", ",")}
             </Text>
           </View>
 

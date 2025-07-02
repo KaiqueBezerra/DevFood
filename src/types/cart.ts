@@ -7,6 +7,7 @@ export interface CartItemProps {
   price: number;
   restaurantId: string;
   restaurantImage: string;
+  restaurantName: string;
   location: string;
   delivery: number;
 }

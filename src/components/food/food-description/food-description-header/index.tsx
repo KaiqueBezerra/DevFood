@@ -39,7 +39,8 @@ export function FoodDescriptionHeader({
               {restaurant.name} - {restaurant.location}
             </Text>
             <Text className="text-sm">
-              {food.time} ● R$ {food.delivery.toFixed(2).replace(".", ",")}
+              {food.time} ● R${" "}
+              {restaurant.delivery.toFixed(2).replace(".", ",")}
             </Text>
           </View>
         </View>

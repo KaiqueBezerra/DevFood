@@ -1,12 +1,14 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
 import { useCart } from "@/src/context/cart-context";
+
+import { ReplaceCartModal } from "@/src/components/replace-cart-modal";
+import { CartItemProps } from "@/src/types/cart";
 import { FoodProps } from "@/src/types/food";
 import { RestaurantProps } from "@/src/types/restaurant";
+import { router } from "expo-router";
 
 export function FoodDescriptionFooter({
   food,
@@ -16,33 +18,39 @@ export function FoodDescriptionFooter({
   restaurant: RestaurantProps;
 }) {
   const [quantity, setQuantity] = useState(1);
+  const [showReplaceModal, setShowReplaceModal] = useState(false);
+  const [pendingItem, setPendingItem] = useState<CartItemProps | null>(null);
 
-  const { addToCart } = useCart();
+  const { cart, addToCart, clearCart } = useCart();
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const item = {
       id: food.id,
       name: food.name,
       description: food.description,
       image: food.image,
-      quantity: quantity,
+      quantity,
       restaurantId: restaurant.id,
       price: food.price,
       restaurantImage: restaurant.image,
+      restaurantName: restaurant.name,
       location: restaurant.location,
-      delivery: food.delivery,
+      delivery: restaurant.delivery,
     };
 
-    await addToCart(item);
+    const isDifferentRestaurant =
+      cart.length > 0 && cart[0].restaurantId !== item.restaurantId;
+
+    if (isDifferentRestaurant) {
+      setPendingItem(item);
+      setShowReplaceModal(true);
+      return;
+    }
+
+    addToCart(item);
+
+    router.back();
   };
-
-  useEffect(() => {
-    const getItem = async () => {
-      await AsyncStorage.getItem("@food");
-    };
-
-    getItem();
-  }, []);
 
   const handleDecrease = () => {
     if (quantity > 1) {
@@ -57,7 +65,7 @@ export function FoodDescriptionFooter({
   const isAddDisabled = total < price;
 
   return (
-    <View className="w-full flex-row px-6 py-4 relative top-10 items-center border-t border-gray-100">
+    <View className="w-full flex-row px-6 py-4 pb-6 items-center border-t border-gray-100">
       <View className="flex-row items-center gap-6 w-[20%]">
         <TouchableOpacity onPress={handleDecrease} disabled={quantity === 1}>
           <Ionicons
@@ -86,6 +94,23 @@ export function FoodDescriptionFooter({
         <Text className="text-white font-semibold">Adicionar</Text>
         <Text className="text-white font-semibold">{formattedTotal}</Text>
       </TouchableOpacity>
+
+      <ReplaceCartModal
+        visible={showReplaceModal}
+        onCancel={() => {
+          setShowReplaceModal(false);
+          setPendingItem(null);
+        }}
+        onConfirm={() => {
+          if (pendingItem) {
+            clearCart();
+            addToCart(pendingItem);
+            router.back();
+          }
+          setPendingItem(null);
+          setShowReplaceModal(false);
+        }}
+      />
     </View>
   );
 }

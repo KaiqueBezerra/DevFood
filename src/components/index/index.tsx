@@ -23,28 +23,13 @@ export function Index() {
         <Search />
       </View>
 
-      <Section
-        name="Comida em alta"
-        size="text-2xl"
-        label="Veja mais"
-        action={() => console.log("CLICOU NO VEJA MAIS")}
-      />
+      <Section name="Comida em alta" size="text-2xl" label="Veja mais" />
       <TrendingFoods />
 
-      <Section
-        name="Famosos no DevFood"
-        size="text-xl"
-        label="Veja todos"
-        action={() => console.log("CLICOU NO FAMOSOS")}
-      />
+      <Section name="Famosos no DevFood" size="text-xl" label="Veja todos" />
       <FamousRestaurants />
 
-      <Section
-        name="Restaurantes"
-        size="text-2xl"
-        label="Veja todos"
-        action={() => console.log("CLICOU NO RESTAURANTE")}
-      />
+      <Section name="Restaurantes" size="text-2xl" label="Veja todos" />
       <Restaurants />
     </ScrollView>
   );

@@ -1,11 +1,30 @@
+import { restaurantApi } from "@/src/repositories/restaurant-repository";
+
 import { FoodProps } from "@/src/types/food";
+import { RestaurantProps } from "@/src/types/restaurant";
 
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import { useEffect, useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-
 export function FoodItem({ food }: { food: FoodProps }) {
+  const [restaurant, setRestaurant] = useState<RestaurantProps>();
+
+  useEffect(() => {
+    const getRestaurant = async () => {
+      const { data, status } = await restaurantApi.getRestaurant(
+        food.restaurantId
+      );
+
+      if (status === 200) {
+        setRestaurant(data);
+      }
+    };
+
+    getRestaurant();
+  }, [food.restaurantId]);
+
   return (
     <TouchableOpacity
       className="flex flex-col rounded-xl relative w-44"
@@ -34,7 +53,10 @@ export function FoodItem({ food }: { food: FoodProps }) {
         {food.name}
       </Text>
       <Text className="text-neutral-600 text-sm">
-        {food.time} - R$ {food.delivery.toFixed(2).replace(".", ",")}
+        {food.time}
+        {restaurant && (
+          <Text> - R$ {restaurant.delivery.toFixed(2).replace(".", ",")}</Text>
+        )}
       </Text>
     </TouchableOpacity>
   );

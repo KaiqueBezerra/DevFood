@@ -1,36 +1,31 @@
+import { router, usePathname } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { router, usePathname } from "expo-router";
-
 import { useCart } from "@/src/context/cart-context";
-
-// export interface CartItem {
-//   id: string;
-//   quantity: number;
-//   restaurantId: number;
-//   price: number;
-//   restaurantImage: string;
-// }
 
 export function CartPreview() {
   const pathname = usePathname();
   const { cart } = useCart();
 
+  // Oculta em rotas específicas
   if (pathname.includes("/cart") || pathname.includes("/food")) {
     return null;
   }
 
-  if (!cart) {
+  // Se carrinho for undefined ou vazio, não renderiza
+  if (!Array.isArray(cart) || cart.length === 0) {
     return null;
   }
 
-  const total = cart.quantity * cart.price;
+  // Agora é seguro usar reduce
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const quantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <View className="w-full flex-row px-6 py-4 pb-6 items-center border-t border-gray-100">
       <View className="flex-row items-center gap-2 w-[50%]">
         <Image
-          source={{ uri: cart.restaurantImage }}
+          source={{ uri: cart[0].restaurantImage }}
           className="w-10 h-10 rounded-full"
         />
         <View>
@@ -41,7 +36,7 @@ export function CartPreview() {
             </Text>
             <Text className="text-gray-500 text-sm">
               {" "}
-              / {cart.quantity} {cart.quantity > 1 ? "itens" : "item"}
+              / {quantity} {quantity > 1 ? "itens" : "item"}
             </Text>
           </View>
         </View>
