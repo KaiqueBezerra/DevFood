@@ -10,6 +10,7 @@ import { useCart } from "@/src/context/cart-context";
 
 import { CartItemProps } from "@/src/types/cart";
 import { FoodProps } from "@/src/types/food";
+import { router } from "expo-router";
 
 export function CartBody({ cart }: { cart: CartItemProps[] }) {
   const { setCart } = useCart();
@@ -55,26 +56,32 @@ export function CartBody({ cart }: { cart: CartItemProps[] }) {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  const delivery = 5.99; // ou cart[0]?.delivery, se existir
+  const delivery = cart[0].delivery;
   const total = subtotal + delivery;
 
   return (
     <View className="w-full px-6 gap-8">
       {/* Header */}
-      <View className="w-full flex-row items-center gap-4">
-        <Image
-          source={{ uri: restaurantImage }}
-          className="size-10 rounded-full w-[10%]"
-        />
-        <View className="w-[80%]">
-          <Text className="font-semibold text-lg" numberOfLines={1}>
-            {cart[0]?.restaurantName} - {cart[0]?.location}
-          </Text>
-          <Text className="font-semibold" style={{ color: "#EA1D2C" }}>
-            Adicionar mais itens
-          </Text>
+      <TouchableOpacity
+        onPress={() => router.push(`/restaurant/${restaurantId}`)}
+        activeOpacity={0.5}
+      >
+        <View className="w-full flex-row items-center gap-4">
+          <Image
+            source={{ uri: restaurantImage }}
+            className="size-10 rounded-full w-[10%]"
+          />
+          <View className="w-[80%]">
+            <Text className="font-semibold text-lg" numberOfLines={1}>
+              {cart[0]?.restaurantName} - {cart[0]?.location}
+            </Text>
+
+            <Text className="font-semibold" style={{ color: "#EA1D2C" }}>
+              Adicionar mais itens
+            </Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
 
       {/* Itens adicionados */}
       <View className="w-full">
@@ -119,12 +126,16 @@ export function CartBody({ cart }: { cart: CartItemProps[] }) {
           </View>
         ))}
 
-        <Text
-          className="font-semibold text-center mt-8"
-          style={{ color: "#EA1D2C" }}
+        <TouchableOpacity
+          onPress={() => router.push(`/restaurant/${restaurantId}`)}
         >
-          Adicionar mais itens
-        </Text>
+          <Text
+            className="font-semibold text-center mt-8"
+            style={{ color: "#EA1D2C" }}
+          >
+            Adicionar mais itens
+          </Text>
+        </TouchableOpacity>
       </View>
 
       {/* Peça também */}

@@ -12,9 +12,8 @@ const statusBarHeight = Constants.statusBarHeight;
 export function Cart({ cart }: { cart: CartItemProps[] }) {
   return (
     <View style={{ flex: 1, paddingTop: statusBarHeight }}>
-      {/* Conteúdo rolável */}
       <ScrollView
-        style={{ flex: 1, marginBottom: 100 }} // espaço para o footer não cobrir
+        style={{ flex: 1, marginBottom: 100 }} // space for the footer not to cover
         contentContainerStyle={{ paddingBottom: 32 }}
         showsVerticalScrollIndicator={false}
       >
@@ -24,7 +23,7 @@ export function Cart({ cart }: { cart: CartItemProps[] }) {
         </View>
       </ScrollView>
 
-      {/* Footer fixo */}
+      {/* Fixed footer */}
       <View className="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100">
         <CartFooter cart={cart} />
       </View>

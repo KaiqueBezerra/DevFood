@@ -35,7 +35,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       cart.length === 0 || cart[0].restaurantId === item.restaurantId;
 
     if (!sameRestaurant) {
-      // Substitui carrinho por item de outro restaurante
+      // Clear the cart and add the new restaurant item
       saveCart([item]);
       return;
     }

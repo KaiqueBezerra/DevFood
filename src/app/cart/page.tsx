@@ -8,7 +8,7 @@ import { useCart } from "@/src/context/cart-context";
 export default function CartPage() {
   const { cart } = useCart();
 
-  // ✅ Redireciona se o carrinho estiver vazio
+  // If the cart is empty, redirect to the home page
   useEffect(() => {
     if (!Array.isArray(cart) || cart.length === 0) {
       router.replace("/");
@@ -16,7 +16,7 @@ export default function CartPage() {
   }, [cart]);
 
   if (!Array.isArray(cart) || cart.length === 0) {
-    return null; // evita renderização momentânea
+    return null; // If the cart is empty, don't render anything
   }
 
   return <Cart cart={cart} />;

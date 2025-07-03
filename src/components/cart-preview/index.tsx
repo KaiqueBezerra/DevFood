@@ -7,17 +7,16 @@ export function CartPreview() {
   const pathname = usePathname();
   const { cart } = useCart();
 
-  // Oculta em rotas específicas
+  // Hidden on specific routes
   if (pathname.includes("/cart") || pathname.includes("/food")) {
     return null;
   }
 
-  // Se carrinho for undefined ou vazio, não renderiza
+  // If the cart is empty, don't render anything
   if (!Array.isArray(cart) || cart.length === 0) {
     return null;
   }
 
-  // Agora é seguro usar reduce
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const quantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 

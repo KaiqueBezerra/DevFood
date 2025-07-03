@@ -1,4 +1,3 @@
-import { router } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 
 import { CartItemProps } from "@/src/types/cart";
@@ -11,7 +10,7 @@ export function CartFooter({ cart }: { cart: CartItemProps[] }) {
     0
   );
   const quantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const delivery = 5.99; // valor fixo ou pode vir do restaurante
+  const delivery = cart[0].delivery;
   const total = subtotal + delivery;
 
   return (
@@ -37,7 +36,6 @@ export function CartFooter({ cart }: { cart: CartItemProps[] }) {
           backgroundColor: "#EA1D2C",
         }}
         activeOpacity={0.7}
-        onPress={() => router.push("/cart/page")} // ou próxima rota
       >
         <Text className="text-white font-semibold">Continuar</Text>
       </TouchableOpacity>
