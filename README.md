@@ -29,6 +29,8 @@
    npx expo start
    ```
 
+## Images
+
 ![Imagem do projeto](public/devfood.jpg)
 ![Imagem do projeto](public/restaurant.jpg)
 ![Imagem do projeto](public/food.jpg)
